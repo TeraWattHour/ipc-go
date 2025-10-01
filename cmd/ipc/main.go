@@ -263,9 +263,7 @@ func main() {
 
 	countryProvider := NewCountryProvider(*accountId, *password)
 	if err := countryProvider.LoadDatabase("/data/countries.hmmdb"); err != nil {
-		if updateErr := countryProvider.Update("https://download.maxmind.com/geoip/databases/GeoLite2-Country/download?suffix=tar.gz", "https://download.maxmind.com/geoip/databases/GeoLite2-Country/download?suffix=tar.gz.sha256"); updateErr != nil {
-			log.Fatal(updateErr)
-		}
+		log.Println(err)
 	}
 
 	app := fiber.New()
